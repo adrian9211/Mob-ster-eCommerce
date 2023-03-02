@@ -1,30 +1,5 @@
 {
-  "name": "mob-ster",
-  "version": "1.0.0",
-  "description": "Edinburgh College Group Project for an eCommerce website.",
-  "source": "./src/index.html",
-  "scripts": {
-    "start": "parcel src/index.html",
-    "build": "parcel build  --public-url ./ ./src/index.html --dist-dir build ",
-    "watch": "parcel watch src/index.html"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/adrian9211/Mob-ster.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/adrian9211/Mob-ster/issues"
-  },
-  "homepage": "https://github.com/adrian9211/Mob-ster#readme",
-  "devDependencies": {
-    "@parcel/transformer-sass": "^2.8.3",
-    "parcel": "^2.8.3"
-  },
   "dependencies": {
-    "bootstrap": "^5.2.3",
-    "nodemon": "^2.0.20"
+    "owl.carousel": "^2.3.4"
   }
 }
