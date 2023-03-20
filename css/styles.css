@@ -1,5 +1,6 @@
 html, body {
     font-family: 'Josefin Sans', sans-serif;
+    background: #FFFFFF;
 }
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,400;0,500;0,700;1,100;1,400&display=swap');
 
@@ -9,4 +10,45 @@ html, body {
 
 .nav-link {
     color: #FFFFFF !important;
+}
+
+.nav-item:hover {
+    background: #0081ff !important;
+    border-radius: 10px;
+    transition-delay: 0.2s;
+}
+
+.owl-carousel {
+    background: #D4D4D4;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+
+.cart-img{
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(179deg) brightness(106%) contrast(104%);
+}
+
+.header-section {
+    height: 130vh;
+    margin: 0;
+    padding: 0;
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+    background-image: url(../images/mainImg.png);
+}
+
+.header-section-bottom-triangle {
+    height: 30vh;
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+    background-image: url("../images/triangle.png");
+}
+
+
+.breadcrumb {
+    padding: 1rem;
+    background: rgba(73, 130, 182, 0.56);
 }

@@ -3,27 +3,36 @@ session_start();
 include('includes/config.php');
 include('includes/header.php');
 include('includes/navbar.php');
+$page_title = "Administrator Login Panel";
 
+if (isset($_POST['admin_login'])) {
 
-if(isset($_POST['admin_login'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
+    $username = $_POST['email'];
 
-    $query = "SELECT * FROM admin WHERE email='$email' AND password='$password'";
+    $query = "SELECT id, Username, Password FROM admin WHERE Username = '$email' AND Password = '$password'";
     $query_run = mysqli_query($conn, $query);
-
-    if(mysqli_fetch_array($query_run)) {
+    if(mysqli_fetch_array($query_run)){
+        $row = mysqli_fetch_array($query_run);
         $_SESSION['email'] = $email;
-        header('Location: admin/dashboard.php');
-    } else {
-        $_SESSION['status'] = 'Email or password is invalid';
-        header('Location: adminLogin.php');
+        $_SESSION['id'] = $row['id'];
+        $_SESSION['logged-in'] = true;
+        $_SESSION['user'] = $email; //set the username session variable
+        echo "<script>";
+        echo "setTimeout(function (){ window.location.href= 'http://23.102.4.246/Mob-ster/admin-dashboard.php';},10);";
+        echo " </script>";
+    }
+    else{
+        $_SESSION['status'] = 'Email/Password is Invalid';
+        echo "<script>";
+        echo "setTimeout(function (){ window.location.href= 'http://23.102.4.246/Mob-ster/login-error.php';},10);";
+        echo " </script>";
     }
 }
 ?>
 
 <body>
-
 <div class="container">
     <div class="card card-login mx-auto mt-5">
         <div class="card-header">Login</div>
@@ -54,7 +63,7 @@ if(isset($_POST['admin_login'])) {
             </form>
 
             <div class="text-center">
-                <a class="d-block small mt-3" href="/index.php">Home</a>
+                <a class="d-block small mt-3" href="index.php">Home</a>
                 <a class="d-block small" href="includes/forgot-password.php">Forgot Password?</a>
             </div>
 
