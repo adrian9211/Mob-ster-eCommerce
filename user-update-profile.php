@@ -77,7 +77,13 @@ if(isset($_SESSION['logged-in'])) {
             <script>
                 setTimeout(function ()
                     {
-                        swal("Success!","<?php echo $success;?>!","success");
+                        Swal.fire({
+                            position: 'Center',
+                            icon: 'success',
+                            title: 'Your profile has been updated',
+                            showConfirmButton: false,
+                            timer: 2500
+                        })
                     },
                     100);
             </script>
@@ -88,7 +94,13 @@ if(isset($_SESSION['logged-in'])) {
             <script>
                 setTimeout(function ()
                     {
-                        swal("Failed!","<?php echo $error;?>!","Failed");
+                        Swal.fire({
+                            position: 'Center',
+                            icon: 'warning',
+                            title: 'Your profile could not be updated',
+                            showConfirmButton: false,
+                            timer: 2500
+                        })
                     },
                     100);
             </script>

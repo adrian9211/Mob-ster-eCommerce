@@ -1,3 +1,15 @@
+<?php
+$totalQuantity = 0;
+if(isset($_SESSION['cart'])) {
+    foreach($_SESSION['cart'] as $item) {
+        $totalQuantity += $item['quantity'];
+    }
+}
+?>
+
+
+
+
 <!--Navbar section, bootstrap v5.2.3-->
 <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
@@ -44,16 +56,21 @@
                     <a class="nav-link m-3"  href="user-dashboard.php">Account</a>
                 </li>';
                     echo ' <li class="nav-item ps-3 pe-3 p-sm-0">
-                    <a class="nav-link m-3" aria-current="page" data-bs-toggle="modal" data-bs-target="#myModalLogout" id="logout" href="logout.php">Logout</a>
+                    <a aria-current="page"  class="nav-link m-3"  id="logout" href="#" >Logout</a>
                 </li>';
                 }
                 else {
 //                            echo 'style="display:none;"';
                 }
                 ?>
+
+
                 <li class="cart ps-3 pe-3 p-sm-0 d-flex">
-                    <a class="cart-img me-2" href="index.php">
-                        <img src="./images/cart.svg" alt="cart-icon" >
+                    <a href="cart.php" class="nav-link m-3">
+                        <i class="fas fa-shopping-basket"></i> Basket
+                        <?php if(isset($_SESSION['cart'])) { ?>
+                            <span class="badge bg-secondary"><?php echo $totalQuantity; ?></span>
+                        <?php } ?>
                     </a>
                 </li>
             </ul>

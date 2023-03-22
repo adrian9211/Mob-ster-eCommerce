@@ -1,165 +1,193 @@
+
 <?php
-  session_start();
-  include('vendor/inc/config.php');
-  include('vendor/inc/checklogin.php');
-  check_login();
-  $aid=$_SESSION['id'];
-  //Add USer
-  if(isset($_POST['update_password']))
+# Set page title
+$page_title = "User Profile";
+session_start();
+include ('includes/header.php');
+include ('includes/navbar.php');
+include ('includes/config.php');
+include ('includes/checklogin.php');
+$user = $_SESSION['user'];
+check_login();
+$aid=$_SESSION['id'];
+
+// if statement to check if user is logged in
+if(isset($_SESSION['logged-in'])) {
+
+    if (isset($_POST['update_password']))
     {
-            $u_id = $_SESSION['id'];
-            $u_pwd=$_POST['u_pwd'];
-           // $u_category=$_POST['u_category'];
-            $query="update tms_user set u_pwd=? where u_id=?";
-            $stmt = $mysqli->prepare($query);
-            $rc=$stmt->bind_param('si',  $u_pwd, $u_id);
-            $stmt->execute();
-                if($stmt)
-                {
-                    $succ = "Password Updated";
-                }
-                else 
-                {
-                    $err = "Please Try Again Later";
-                }
+        $resultSingleUser = mysqli_query($conn, "SELECT * FROM users WHERE Username = '$user'");
+        $row = mysqli_fetch_array($resultSingleUser, MYSQLI_ASSOC);
+        $databasePassword = $row['Password'];
+//        $databasePassword = "SELECT Password FROM users WHERE Username = '$user'";
+        $oldPassword = $_POST['OldPassword'];
+        $newPassword1 = $_POST['NewPassword1'];
+        $newPassword2 = $_POST['NewPassword2'];
+
+        if ($oldPassword == null ) {
+            $error1 =  "Please enter your old password";
+        }
+        elseif ($oldPassword != $databasePassword) {
+            $error2 = "Please provide correct old password";
+        }
+        elseif ($newPassword1 != $newPassword2) {
+            $error3 = "Please make sure your new passwords match";
+        }
+        else {
+            $updateQuerry = "UPDATE users SET Password = '$_POST[NewPassword2]' WHERE Username = '$user'";
+            mysqli_query($conn, $updateQuerry) or die ("couldn't run query");
+            if (mysqli_query($conn, $updateQuerry)) {
+                $success = "Profile Updated";
+            } else {
+                $error = "Please Try Again Later";
+                echo "Error updating record: " . mysqli_error($conn);
             }
-?>
-<!DOCTYPE html>
-<html lang="en">
+        }
+    }
+    ?>
 
-<?php include('vendor/inc/head.php');?>
 
-<body id="page-top">
- <!--Start Navigation Bar-->
-  <?php include("vendor/inc/nav.php");?>
-  <!--Navigation Bar-->
+    <!--    Content of the page-->
 
-  <div id="wrapper">
-
-    <!-- Sidebar -->
-    <?php include("vendor/inc/sidebar.php");?>
-    <!--End Sidebar-->
-    <div id="content-wrapper">
-
-      <div class="container-fluid">
-      <?php if(isset($succ)) {?>
-                        <!--This code for injecting an alert-->
-        <script>
-                    setTimeout(function () 
-                    { 
-                        swal("Success!","<?php echo $succ;?>!","success");
+<!--Modal messages for each scenario -->
+    <div class="container">
+        <?php if(isset($success)) {?>
+            <!--This code for injecting an alert-->
+            <script>
+                setTimeout(function ()
+                    {
+                        Swal.fire({
+                            position: 'Center',
+                            icon: 'success',
+                            title: 'Your password has been changed',
+                            showConfirmButton: false,
+                            timer: 2500
+                        })
                     },
-                        100);
-        </script>
+                    100);
+            </script>
 
         <?php } ?>
-        <?php if(isset($err)) {?>
-        <!--This code for injecting an alert-->
-        <script>
-                    setTimeout(function () 
-                    { 
-                        swal("Failed!","<?php echo $err;?>!","Failed");
+        <?php if(isset($error1)) {?>
+            <!--This code for injecting an alert-->
+            <script>
+                setTimeout(function ()
+                    {
+                        Swal.fire({
+                            position: 'Center',
+                            icon: 'warning',
+                            title: 'Please enter your old password',
+                            showConfirmButton: false,
+                            timer: 2500
+                        })
                     },
-                        100);
-        </script>
+                    100);
+            </script>
 
         <?php } ?>
 
-         <!-- Breadcrumbs-->
-         <ol class="breadcrumb">
-          <li class="breadcrumb-item">
-            <a href="user-dashboard.php">Dashboard</a>
-          </li>
-          <li class="breadcrumb-item">Profile</li>
-          <li class="breadcrumb-item active">Change Password</li>
+        <?php if(isset($error2)) {?>
+            <!--This code for injecting an alert-->
+            <script>
+                setTimeout(function ()
+                    {
+                        Swal.fire({
+                            position: 'Center',
+                            icon: 'warning',
+                            title: 'Please provide correct old password',
+                            showConfirmButton: false,
+                            timer: 2500
+                        })
+                    },
+                    100);
+            </script>
+
+        <?php } ?>
+
+        <?php if(isset($error3)) {?>
+            <!--This code for injecting an alert-->
+            <script>
+                setTimeout(function ()
+                    {
+                        Swal.fire({
+                            position: 'Center',
+                            icon: 'warning',
+                            title: 'Please make sure your new passwords match',
+                            showConfirmButton: false,
+                            timer: 2500
+                        })
+                    },
+                    100);
+            </script>
+
+        <?php } ?>
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="user-dashboard.php">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="user-view-profile.php">Profile</a>
+            </li>
+            <li class="breadcrumb-item active">Change Password</li>
         </ol>
+
         <hr>
         <div class="card">
-        <div class="card-header">
-          Add User
+            <div class="card-header">
+                Update Password
+            </div>
+            <div class="card-body">
+
+                <form method ="POST">
+                    <div class="form-group" >
+                        <label for="exampleInputEmail1">Old Password</label>
+                        <input type="password" class="form-control" id="exampleInputEmail1" name="OldPassword" required >
+                    </div>
+                    <div class="form-group" >
+                        <label for="exampleInputEmail1">New Password</label>
+                        <input type="password" class="form-control" id="exampleInputEmail1"  name="NewPassword1" required>
+                    </div>
+                    <div class="form-group" >
+                        <label for="exampleInputEmail1">Confirm Password</label>
+                        <input type="password" class="form-control" id="exampleInputEmail1"  name="NewPassword2" required>
+                    </div>
+
+                    <button type="submit" name="update_password" value="update_password"  class="btn btn-outline-danger">Change Pasword</button>
+                </form>
+                <!-- End Form-->
+            </div>
         </div>
-        <div class="card-body">
-        
-          <form method ="POST"> 
-            
-            <div class="form-group" >
-                <label for="exampleInputEmail1">Old Password</label>
-                <input type="password" class="form-control" id="exampleInputEmail1" >
-            </div>
 
-            <div class="form-group" >
-                <label for="exampleInputEmail1">New Password</label>
-                <input type="password" class="form-control" id="exampleInputEmail1"  name="u_pwd">
-            </div>
-
-            <div class="form-group" >
-                <label for="exampleInputEmail1">COnfirm Password</label>
-                <input type="password" class="form-control" id="exampleInputEmail1"  name="u_pwd">
-            </div>
-            
-            <button type="submit" name="update_password" class="btn btn-outline-danger">Change Pasword</button>
-          </form>
-          <!-- End Form-->
-        </div>
-      </div>
-       
-      <hr>
-     
-
-      <!-- Sticky Footer -->
-      <?php include("vendor/inc/footer.php");?>
-
+        <hr>
     </div>
     <!-- /.content-wrapper -->
 
-  </div>
-  <!-- /#wrapper -->
+    <!-- /#wrapper -->
 
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
+    <!--    Content of the page-->
 
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-danger" href="admin-logout.php">Logout</a>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <?php
+}
+// else statement to checked if user is logged in
+else {
+    echo '<div class="container">';
+    echo 'not logged yet';
+    echo '<br>';
+    echo 'Please login';
+    echo '<br>';
+    echo 'You will be redirected to the main page in 5 seconds';
+    echo '</div>';
+    echo '<script>';
+    echo 'setTimeout(function(){window.location.href = "http://23.102.4.246/Mob-ster/clientLogin.php";}, 5000);';
+    echo '</script>';
+};
+// end of else statement
+?>
 
-  <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-  <!-- Page level plugin JavaScript-->
-  <script src="vendor/chart.js/Chart.min.js"></script>
-  <script src="vendor/datatables/jquery.dataTables.js"></script>
-  <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
 
-  <!-- Custom scripts for all pages-->
-  <script src="vendor/js/sb-admin.min.js"></script>
-
-  <!-- Demo scripts for this page-->
-  <script src="vendor/js/demo/datatables-demo.js"></script>
-  <script src="vendor/js/demo/chart-area-demo.js"></script>
- <!--INject Sweet alert js-->
- <script src="vendor/js/swal.js"></script>
-
-</body>
-
-</html>
+<?php
+include('includes/footer.php');
+?>
