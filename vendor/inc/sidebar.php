@@ -1,6 +1,6 @@
 <?php
-            $aid=$_SESSION['id'];
-            $ret="select * from users where id=?";
+            $aid=$_SESSION['u_id'];
+            $ret="select * from tms_user where u_id=?";
             $stmt= $mysqli->prepare($ret) ;
             $stmt->bind_param('i',$aid);
             $stmt->execute() ;//ok
@@ -22,7 +22,7 @@
                       <span>My Profile</span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                      <h6 class="dropdown-header"><?php echo $row->Username;?> <?php echo $row->Surname;?></h6>
+                      <h6 class="dropdown-header"><?php echo $row->u_fname;?> <?php echo $row->u_lname;?></h6>
                       <a class="dropdown-item" href="user-view-profile.php">View</a>
                       <a class="dropdown-item" href="user-update-profile.php">Update</a>
                       <a class="dropdown-item" href="user-change-pwd.php">Change Password</a>

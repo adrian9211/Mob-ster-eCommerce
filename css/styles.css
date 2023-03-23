@@ -52,3 +52,254 @@ html, body {
     padding: 1rem;
     background: rgba(73, 130, 182, 0.56);
 }
+
+footer {
+    background: #003B71;
+    color: #FFFFFF;
+    padding: 3rem;
+}
+
+footer li a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+footer i {
+    color: white;
+}
+
+footer i:hover {
+    color: #0081ff;
+    transition: all .2s ease-in-out;
+    transform: scale(1.5);
+}
+
+
+/*Feedback owl menu*/
+/* Feedback*/
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,800);
+.feedback-card {
+    font-family: 'Raleway', Arial, sans-serif;
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+    min-width: 220px;
+    max-width: 310px;
+    width: 100%;
+    color: #333;
+    text-align: left;
+    box-shadow: none !important;
+}
+.feedback-card * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.feedback-card img {
+    max-width: 100%;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    display: inline-block;
+    z-index: 1;
+    position: relative;
+}
+.feedback-card blockquote {
+    margin: 0;
+    display: block;
+    border-radius: 8px;
+    position: relative;
+    background-color: #fafafa;
+    padding: 30px 50px 65px 50px;
+    font-size: 0.8em;
+    font-weight: 500;
+    margin: 0 0 -50px;
+    line-height: 1.6em;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+.feedback-card blockquote:before,
+.feedback-card blockquote:after {
+    font-family: 'FontAwesome';
+    content: "\201C";
+    position: absolute;
+    font-size: 50px;
+    opacity: 0.3;
+    font-style: normal;
+}
+.feedback-card blockquote:before {
+    top: 35px;
+    left: 20px;
+}
+.feedback-card blockquote:after {
+    content: "\201D";
+    right: 20px;
+    bottom: 35px;
+}
+.feedback-card .author {
+    margin: 0;
+    text-transform: uppercase;
+    text-align: center;
+    color: #000000;
+}
+.feedback-card .author h5 {
+    opacity: 0.8;
+    margin: 0;
+    font-weight: 800;
+    color: #0a0910;
+}
+
+.card-title a {
+    margin: 0 5px 0 5px;
+    color: #000;
+    font-size: 1.5em;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease 0s;
+}
+/*Feedback owl menu*/
+
+
+/*Contact */
+.contact-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #2B2E3C;
+    padding: 0 2em 2em 2em;
+    color: #FFFFFF;
+    margin-bottom: 1rem;
+}
+
+.contact-box i {
+    position: sticky;
+    font-size: 2.5rem;
+    color: #FFFFFF;
+}
+
+.circle-icon {
+    transform: translateY(-56px);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    padding: 1rem;
+    background: #228df3;
+}
+
+.grid {
+    display: grid;
+    grid-auto-flow: column;
+}
+
+
+.element {
+    height: 100%;
+}
+
+.social_media ul li {
+    display: block;
+    margin: 5px;
+    max-width: 310px;
+    min-width: 210px;
+    text-align: center;
+    padding: 10px;
+}
+
+.social_media ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+}
+
+.social_media ul li i:hover {
+    color: #0081ff;
+    transition: all .2s ease-in-out;
+    transform: scale(1.5);
+}
+
+/* About page */
+
+.about-statement {
+    font-family: 'Raleway', Arial, sans-serif;
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+    min-width: 220px;
+    max-width: 1110px;
+    width: 100%;
+    color: #333;
+    text-align: left;
+    font-size: 1.5rem;
+    box-shadow: none !important;
+}
+.about-statement * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.about-statement img {
+    max-width: 100%;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    display: inline-block;
+    z-index: 1;
+    position: relative;
+}
+.about-statement blockquote {
+    margin: 0;
+    display: block;
+    border-radius: 8px;
+    position: relative;
+    background-color: #fafafa;
+    padding: 30px 50px 65px 50px;
+    font-size: 0.8em;
+    font-weight: 500;
+    margin: 0 0 -50px;
+    line-height: 1.6em;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+.about-statement blockquote:before,
+.about-statement blockquote:after {
+    font-family: 'FontAwesome';
+    content: "\201C";
+    position: absolute;
+    font-size: 50px;
+    opacity: 0.3;
+    font-style: normal;
+}
+.about-statement blockquote:before {
+    top: 35px;
+    left: 20px;
+}
+.about-statement blockquote:after {
+    content: "\201D";
+    right: 20px;
+    bottom: 35px;
+}
+.about-statement .author {
+    margin: 0;
+    text-transform: uppercase;
+    text-align: center;
+    color: #000000;
+}
+.about-statement .author h5 {
+    opacity: 0.8;
+    margin: 0;
+    font-weight: 800;
+    color: #0a0910;
+}
+
+.about-statement a {
+    margin: 0 5px 0 5px;
+    color: #000;
+    font-size: 1.5em;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease 0s;
+}
+/*About page*/

@@ -8,7 +8,6 @@ include ('includes/config.php');
 
 ?>
 
-    <body>
 
     <div class="general">
         <div class="container">
@@ -88,7 +87,6 @@ include ('includes/config.php');
     </div>
 
 
-    </body>
 
 
 

@@ -25,7 +25,6 @@ if(isset($_SESSION['logged-in'])) {
             echo "Error updating record: " . mysqli_error($conn);
         }
 
-
     }
     if (isset($_POST['delete']))
     {
@@ -159,12 +158,6 @@ if(isset($_SESSION['logged-in'])) {
             <?php }?>
         </div>
     </div>
-    <!-- /.content-wrapper -->
-
-    <!-- /#wrapper -->
-
-    <!--    Content of the page-->
-
 
     <?php
 }

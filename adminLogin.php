@@ -32,7 +32,6 @@ if (isset($_POST['admin_login'])) {
 }
 ?>
 
-<body>
 <div class="container">
     <div class="card card-login mx-auto mt-5">
         <div class="card-header">Login</div>
@@ -71,7 +70,6 @@ if (isset($_POST['admin_login'])) {
     </div>
 </div>
 
-</body>
 
 
 <?php

@@ -8,13 +8,13 @@ if(isset($_SESSION['cart'])) {
 ?>
 
 
-
+<body>
 
 <!--Navbar section, bootstrap v5.2.3-->
 <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
         <a class="navbar-brand mb-3" href="./index.php">
-            <img src="./images/logo_small3.png" alt="Mobster logo"  class="d-inline-block  align-text-top m-auto ps-5 ps-sm-1">
+            <img src="./images/logo_small4.png" alt="Mobster logo"  class="d-inline-block  align-text-top m-auto ps-5 ps-sm-1">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

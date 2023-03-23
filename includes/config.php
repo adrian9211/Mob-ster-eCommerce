@@ -12,9 +12,4 @@ $dbpass = '1xCMat5k5Cb4';
 $database = 'mobster';
 $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $database) or die('Could not connect: ' . mysqli_connect_error());
 
-
-/* Changes are not required, used for internal purpose */
-$siteURL = (!empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on")?'https://':'http://';
-$siteURL = $siteURL.$_SERVER["SERVER_NAME"].dirname($_SERVER['REQUEST_URI']).'/';
-
 ?>

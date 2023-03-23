@@ -10,12 +10,6 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 ?>
 
-    <body>
-
-
-
-
-
 
     <div class="container mt-5">
         <h1>Our offer</h1>
@@ -90,9 +84,10 @@ ini_set('display_errors', 1);
             }
             ?>
         </div>
+        </div>
+        </div>
 
 
-    </body>
 
 
 

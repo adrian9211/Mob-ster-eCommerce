@@ -6,7 +6,6 @@ $page_title = "Home Page";
 
 ?>
 
-<body>
 <section>
     <div id="owl-demo" class="owl-carousel owl-theme">
         <div class="item">
@@ -46,8 +45,6 @@ $page_title = "Home Page";
 
 </div>
 
-
-</body>
 
 
 
