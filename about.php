@@ -7,14 +7,15 @@ include('includes/navbar.php');
     <!--About page content (statement)-->
 <div class="container mt-5">
     <div class="row">
+        <img src="images/logo.png" alt="logo4" class="mx-auto d-block"/>
         <div class="item col-xl-6 col-sm-12">
             <section class="about-statement">
                 <div class="author">
-                    <img src="images/logo_small4.png" alt="logo4"/>
-                    <h5>Our Mission</h5>
+                    <h5 class="mb-4">Our Mission</h5>
                 </div>
                 <blockquote>At Mob-ster, we are passionate about providing our customers with the latest and greatest in smartphone technology
-                    and accessories. We pride ourselves on offering a wide range of products to meet the needs of every mobile user,
+                    and accessories. Our mission is to provide our customers
+                    with the highest quality products at the most competitive prices, backed by exceptional customer service. We pride ourselves on offering a wide range of products to meet the needs of every mobile user,
                     from the latest smartphones to the perfect phone case or charger. <br>  <br> With a commitment to exceptional customer service and
                     competitive pricing, we are dedicated to making the world of mobile technology accessible to everyone.</blockquote>
             </section>
@@ -23,21 +24,19 @@ include('includes/navbar.php');
         <div class="item col-xl-6 col-sm-12">
             <section class="about-statement">
                 <div class="author">
-                    <img src="images/logo_small4.png" alt="logo4"/>
-                    <h5>About Company</h5>
+                    <h5 class="mb-4">About Company</h5>
                 </div>
                 <blockquote>Mob-ster is a leading online retailer specializing in the sale of smartphones, phone cases,
-                    chargers, selfie sticks, and other mobile accessories. Our mission is to provide our customers
-                    with the highest quality products at the most competitive prices, backed by exceptional customer service. At Mob-ster, we understand the importance of staying connected, and our extensive range of products is
+                    chargers, selfie sticks, and other mobile accessories. At Mob-ster, we understand the importance of staying connected, and our extensive range of products is
                     designed to meet the needs of every mobile user. Whether you are looking for the latest smartphone, a protective case,
                     or a reliable charger, we have something for everyone. We are passionate about what we do, and our knowledgeable team is always on hand to provide expert advice
-                    and guidance to our customers. We believe that everyone should have access to the latest mobile technology,
+                    and guidance to our customers. <br>  <br> We believe that everyone should have access to the latest mobile technology,
                     and we work tirelessly to ensure that our products are both affordable and of the highest quality. So whether you are a seasoned tech enthusiast or a new mobile user, Mob-ster is the perfect place to find everything
                     you need to stay connected. Shop with us today and experience the Mob-ster difference! </blockquote>
             </section>
         </div>
-        <p style="font-weight: bold; text-align: center;">Thanks For Visiting Our Site<br><br>
-            <span style="color: blue; font-size: 16px; font-weight: bold; text-align: center;">Have a nice day!</span></p>
+        <p style="font-weight: bold; text-align: center; font-size: 22px; ">Thanks For Visiting Our Site<br><br>
+            <span style="color: blue; font-size: 20px; font-weight: bold; text-align: center; ">Have a nice day!</span></p>
     </div>
 </div>
     <!--About page content (statement)-->

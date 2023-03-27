@@ -29,23 +29,23 @@ html, body {
     filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(179deg) brightness(106%) contrast(104%);
 }
 
-.header-section {
-    height: 130vh;
-    margin: 0;
-    padding: 0;
-    background-repeat:no-repeat;
-    background-size:cover;
-    background-position:center;
-    background-image: url(../images/mainImg.png);
-}
+/*.header-section {*/
+/*    height: 130vh;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    background-repeat:no-repeat;*/
+/*    background-size:cover;*/
+/*    background-position:center;*/
+/*    background-image: url(../images/mainImg.png);*/
+/*}*/
 
-.header-section-bottom-triangle {
-    height: 30vh;
-    background-repeat:no-repeat;
-    background-size:cover;
-    background-position:center;
-    background-image: url("../images/triangle.png");
-}
+/*.header-section-bottom-triangle {*/
+/*    height: 30vh;*/
+/*    background-repeat:no-repeat;*/
+/*    background-size:cover;*/
+/*    background-position:center;*/
+/*    background-image: url("../images/triangle.png");*/
+/*}*/
 
 
 .breadcrumb {
@@ -251,7 +251,8 @@ footer i:hover {
     position: relative;
 }
 .about-statement blockquote {
-    margin: 0;
+    text-align: justify;
+    text-justify: distribute;
     display: block;
     border-radius: 8px;
     position: relative;

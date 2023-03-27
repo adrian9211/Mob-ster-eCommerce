@@ -36,11 +36,13 @@ $page_title = "Home Page";
 
     </section>
 <section class="header-section">
-    <h1 class="text-center">WELCOME TO MOBSTER</h1>
+    <img src="images/headerImage.png" class="img-fluid mx-auto d-block" alt="header1">
+    <img src="images/header2Image.png" class="img-fluid mx-auto d-block" alt="header2">
+    <img src="images/header3Image.png" class="img-fluid mx-auto d-block" alt="header3">
+    <img src="images/header4Image.png" class="img-fluid mx-auto d-block" alt="header4">
+
 </section>
-<section class="header-section-bottom-triangle">
-    <h2 class="text-center">IF YOU’RE LOOKING FOR QUALITY</h2>
-</section>
+
 <div class="container">
 
 </div>
