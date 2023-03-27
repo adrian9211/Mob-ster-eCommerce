@@ -19,12 +19,10 @@
             </div>
             <div class="col-md-4">
                     <ul>
-                        <li><a href="">Privacy Policy</a></li>
-                        <li><a href="">GDPR & Use of Cookies</a></li>
-                        <li><a href="">Terms & Conditions</a></li>
-                        <li><a href="">Sales and Refunds</a></li>
+                        <li><a href="./privacy&policy.php">Privacy Policy</a></li>
+                        <li><a href="./GDPR.php">GDPR & Use of Cookies</a></li>
+                        <li><a href="./terms&conditions.php">Terms & Conditions</a></li>
                         <li><a href="">Site Map</a></li>
-                        <li><a href="">Accessibility</a></li>
                     </ul>
             </div>
             <div class="col-md-4">

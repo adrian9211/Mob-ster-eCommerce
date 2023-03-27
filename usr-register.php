@@ -2,33 +2,34 @@
 <?php
   //session_start();
   include('vendor/inc/config.php');
-  //include('vendor/inc/checklogin.php');
-  //check_login();
-  //$aid=$_SESSION['a_id'];
-  //Add USer
   if(isset($_POST['add_user']))
     {
 
-            $u_fname=$_POST['u_fname'];
-            $u_lname = $_POST['u_lname'];
-            $u_phone=$_POST['u_phone'];
-            $u_addr=$_POST['u_addr'];
-            $u_email=$_POST['u_email'];
-            $u_pwd=$_POST['u_pwd'];
-            $u_category=$_POST['u_category'];
-            $query="insert into tms_user (u_fname, u_lname, u_phone, u_addr, u_category, u_email, u_pwd) values(?,?,?,?,?,?,?)";
-            $stmt = $mysqli->prepare($query);
-            $rc=$stmt->bind_param('sssssss', $u_fname,  $u_lname, $u_phone, $u_addr, $u_category, $u_email, $u_pwd);
-            $stmt->execute();
-                if($stmt)
-                {
-                    $succ = "Account Created Proceed To Log In";
+            $FirstName=$_POST['FirstName'];
+            $Surname = $_POST['Surname'];
+            $Username=$_POST['Username'];
+            $Password=$_POST['Password'];
+            $Phone=$_POST['Phone'];
+            $Address=$_POST['Address'];
+        $checkUser = mysqli_query($conn, "SELECT * FROM users WHERE Username = '$Username'");
+        if (mysqli_num_rows($checkUser) > 0) {
+            echo "Username already exists - Please Login or choose another username";
+        } else {
+            $sql = mysqli_prepare($conn, "INSERT INTO `users` (Username, Password, FirstName, Surname, Phone, Address) VALUES ('$_POST[Username]', '$_POST[Password]', '$_POST[FirstName]', '$_POST[Surname]', '$_POST[Phone]', '$_POST[Address]')");
+            if($sql !== FALSE){
+                if(mysqli_stmt_execute($sql)){
+                    echo "New record created successfully";
+                    echo "<br>";
+                    echo "You will be redirected to the login page in 5 seconds";
+                    header("location:members.php?user=$Username");
+                } else {
+                    echo mysqli_stmt_error($sql);
                 }
-                else 
-                {
-                    $err = "Please Try Again Later";
-                }
+            } else{
+                echo mysqli_error($conn);
             }
+        }
+    }
 ?>
 <!--End Server Side Scriptiong-->
 <!DOCTYPE html>
@@ -85,20 +86,20 @@
             <div class="form-row">
               <div class="col-md-4">
                 <div class="form-label-group">
-                <input type="text" required class="form-control" id="exampleInputEmail1" name="u_fname">
+                <input type="text" required class="form-control" id="exampleInputEmail1" name="FirstName">
                   <label for="firstName">First name</label>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-label-group">
-                <input type="text" class="form-control" id="exampleInputEmail1" name="u_lname">
+                <input type="text" class="form-control" id="exampleInputEmail1" name="Surname">
                   <label for="lastName">Last name</label>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-label-group">
-                <input type="text" class="form-control" id="exampleInputEmail1" name="u_phone">
-                  <label for="lastName">Contact</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" name="Phone">
+                  <label for="phone">Contact</label>
                 </div>
               </div>
             </div>
@@ -106,27 +107,21 @@
 
           <div class="form-group">
             <div class="form-label-group">
-            <input type="text" class="form-control" id="exampleInputEmail1" name="u_addr">
+            <input type="text" class="form-control" id="exampleInputEmail1" name="Address">
               <label for="inputEmail">Address</label>
-            </div>
-          </div>
-          <div class="form-group" style ="display:none">
-            <div class="form-label-group">
-            <input type="text" class="form-control" id="exampleInputEmail1" value="User" name="u_category">
-              <label for="inputEmail">User Category</label>
             </div>
           </div>
           <div class="form-group">
             <div class="form-label-group">
-            <input type="email" class="form-control" name="u_email"">
-              <label for="inputEmail">Email address</label>
+            <input type="email" class="form-control" name="Username"">
+              <label for="inputEmail">Username</label>
             </div>
           </div>
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-12">
                 <div class="form-label-group">
-                <input type="password" class="form-control" name="u_pwd" id="exampleInputPassword1">
+                <input type="password" class="form-control" name="Password" id="exampleInputPassword1">
                   <label for="inputPassword">Password</label>
                 </div>
               </div>
@@ -136,7 +131,7 @@
         </form>
         <!--End FOrm-->
         <div class="text-center">
-          <a class="d-block small mt-3" href="index.php">Login Page</a>
+          <a class="d-block small mt-3" href="clientLogin.php">Login Page</a>
           <a class="d-block small" href="usr-forgot-pwd.php">Forgot Password?</a>
         </div>
         

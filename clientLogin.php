@@ -53,7 +53,7 @@ if (isset($_POST['user_login'])) {
                 <input type="submit" name="user_login" class="btn btn-primary" value="Login">
             </form>
             <div class="text-center">
-                <a class="m-2" href="includes/register.php">Register an Account</a>
+                <a class="m-2" href="usr-register.php">Register an Account</a>
                 <a class="m-2" href="includes/forgot-password.php">Forgot Password?</a>
                 <a class="m-2" href="index.php">Home</a>
             </div>

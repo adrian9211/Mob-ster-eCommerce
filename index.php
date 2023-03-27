@@ -40,7 +40,6 @@ $page_title = "Home Page";
     <img src="images/header2Image.png" class="img-fluid mx-auto d-block" alt="header2">
     <img src="images/header3Image.png" class="img-fluid mx-auto d-block" alt="header3">
     <img src="images/header4Image.png" class="img-fluid mx-auto d-block" alt="header4">
-
 </section>
 
 <div class="container">
