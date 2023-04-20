@@ -99,7 +99,7 @@ include ('includes/config.php');
                             <h3 class="bg-primary text-white text-center py-3">Add new Product</h3>
                         </div>
                         <div class="card-body">
-                            <form action="insert.php" method="post">
+                            <form action="insert.php" method="post" enctype="multipart/form-data">
                                 <label for="Title">Title:</label>
                                 <input type="text" class="form-control mb-2" name="Title" >
 
@@ -142,8 +142,8 @@ include ('includes/config.php');
                                 <label for="Colour">Colour</label>
                                 <input type="text" class="form-control mb-2" name="Colour5"  >
 
-<!--                                <label for="file_name">Image</label>-->
-<!--                                <input type="file" class="form-control mb-2" name="file" >-->
+                                <label for="file_name">Image</label>
+                                <input type="file" class="form-control mb-2" name="uploadfile" >
 
                                 <label for="Price">Price:</label>
                                 <input type="number" class="form-control mb-2" name="Price" step="0.01" >

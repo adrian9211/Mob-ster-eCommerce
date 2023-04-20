@@ -34,18 +34,18 @@ if (isset($_POST['update'])) {
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
 
-        // Redirect to the appropriate page based on the category
-        $result = true;
-
-
-        if($result)
-        {
-            header("location:admin-products-management.php");
-        }
-        else
-        {
-            echo 'Please Check Your Query insert';
-        }
+//        // Redirect to the appropriate page based on the category
+//        $result = true;
+//
+//
+//        if($result)
+//        {
+//            header("location:admin-products-management.php");
+//        }
+//        else
+//        {
+//            echo 'Please Check Your Query insert';
+//        }
     }
 }
 //mysqli_close($conn);
