@@ -56,7 +56,7 @@ if(isset($_SESSION['cart'])) {
                     <a class="nav-link m-3"  href="user-dashboard.php">Account</a>
                 </li>';
                     echo ' <li class="nav-item ps-3 pe-3 p-sm-0">
-                    <a aria-current="page"  class="nav-link m-3"  id="logout" href="#" >Logout</a>
+                    <a   class="nav-link m-3"  id="logout" href="#" >Logout</a>
                 </li>';
                 }
                 else {

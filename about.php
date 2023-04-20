@@ -26,13 +26,20 @@ include('includes/navbar.php');
                 <div class="author">
                     <h5 class="mb-4">About Company</h5>
                 </div>
-                <blockquote>Mob-ster is a leading online retailer specializing in the sale of smartphones, phone cases,
-                    chargers, selfie sticks, and other mobile accessories. At Mob-ster, we understand the importance of staying connected, and our extensive range of products is
-                    designed to meet the needs of every mobile user. Whether you are looking for the latest smartphone, a protective case,
-                    or a reliable charger, we have something for everyone. We are passionate about what we do, and our knowledgeable team is always on hand to provide expert advice
-                    and guidance to our customers. <br>  <br> We believe that everyone should have access to the latest mobile technology,
-                    and we work tirelessly to ensure that our products are both affordable and of the highest quality. So whether you are a seasoned tech enthusiast or a new mobile user, Mob-ster is the perfect place to find everything
-                    you need to stay connected. Shop with us today and experience the Mob-ster difference! </blockquote>
+                <blockquote>Located in the heart of the bustling city of Edinburgh, Mob-ster is a shop filled with the latest technology and gadgets.
+
+                    The shop was founded in 2010 by a group of tech enthusiasts who shared a passion for mobile phones. <br> <br>
+
+                    The team at Mob-ster have years of experience in the mobile phone industry and are dedicated to providing the best possible service to their customers.
+
+                    They believed that everyone deserved to have access to the latest technology at an affordable price and are committed to make it a reality.
+
+                    <br> <br>
+                    The shop is always buzzing with activity as customers come in to browse the latest model or to seek advice on which phone is the best for them.
+
+                    The team at Mob-ster is always on hand to offer guidance and support, helping customer to make informed decision and ensure that they leave the shop satisfied with their purchase.
+
+                    Mob-ster stands out for its top-quality service and provide a warm and welcoming atmosphere in the shop.   </blockquote>
             </section>
         </div>
         <p style="font-weight: bold; text-align: center; font-size: 22px; ">Thanks For Visiting Our Site<br><br>

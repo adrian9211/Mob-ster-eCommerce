@@ -88,38 +88,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-xl-3 col-sm-6 mb-3">
-                    <div class="card text-white bg-primary o-hidden h-100">
-                        <div class="card-body">
-                            <div class="card-body-icon">
-                                <i class="fas fa-fw fa-cart-shopping"></i>
-                            </div>
-                            <div class="mr-5">My Orders</div>
-                        </div>
-                        <a class="card-footer text-white clearfix small z-1" href="user-view-orders.php">
-                            <span class="float-left">View Details</span>
-                            <span class="float-right">
-                      <i class="fas fa-angle-right"></i>
-                    </span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 mb-3">
-                    <div class="card text-white bg-primary o-hidden h-100">
-                        <div class="card-body">
-                            <div class="card-body-icon">
-                                <i class="fas fa-fw fa-times"></i>
-                            </div>
-                            <div class="mr-5">Cancel Orders</div>
-                        </div>
-                        <a class="card-footer text-white clearfix small z-1" href="user-view-orders.php">
-                            <span class="float-left">View Details</span>
-                            <span class="float-right">
-                      <i class="fas fa-angle-right"></i>
-                    </span>
-                        </a>
-                    </div>
-                </div>
+
                 <div class="col-xl-3 col-sm-6 mb-3">
                     <div class="card text-white bg-primary o-hidden h-100">
                         <div class="card-body">
@@ -156,33 +125,6 @@
                         <p>Great to see you again</p>
                         <br>
 
-                        <?php
-                        $resultSingleUser = mysqli_query($conn, "SELECT * FROM users WHERE Username = '$user'");
-
-                        echo "<div class='single user'>";
-
-                        echo "<table border='1'>
-                        <tr>
-                            <th>Username</th>
-                            <th>Password</th>
-                            <th>First Name</th>
-                            <th>Surname</th>
-                        </tr>";
-
-                        while ($row = mysqli_fetch_array($resultSingleUser, MYSQLI_ASSOC)) {
-                            echo "<form action='user-dashboard.php' method='post'>";
-                            echo "<tr>";
-                            echo "<td><input type='text' class='form-control' name='Username' value='" . $row['Username'] . "'></td>";
-                            echo "<td><input type='text' class='form-control' name='Password' value='" . $row['Password'] . "'></td>";
-                            echo "<td><input type='text' class='form-control' name='FirstName' value='" . $row['FirstName'] . "'></td>";
-                            echo "<td><input type='text' class='form-control' name='Surname' value='" . $row['Surname'] . "'></td>";
-                            echo "</tr>";
-                            echo "</form>";
-                        }
-                        echo "</table>";
-
-                        echo "</div>";
-                        ?>
                     </div>
 
 

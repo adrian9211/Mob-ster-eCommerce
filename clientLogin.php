@@ -20,20 +20,20 @@ if (isset($_POST['user_login'])) {
         $_SESSION['logged-in'] = true;
         $_SESSION['user'] = $email; //set the username session variable
         echo "<script>";
-        echo "setTimeout(function (){ window.location.href= 'http://23.102.4.246/Mob-ster/user-dashboard.php';},10);";
+        echo "setTimeout(function (){ window.location.href= 'http://23.102.4.246/Mob-ster/user-dashboard.php';},2000);";
         echo " </script>";
     }
     else{
         $_SESSION['status'] = 'Email/Password is Invalid';
         echo "<script>";
-        echo "setTimeout(function (){ window.location.href= 'http://23.102.4.246/Mob-ster/login-error.php';},10);";
+        echo "setTimeout(function (){ window.location.href= 'http://23.102.4.246/Mob-ster/login-error.php';},2000);";
         echo " </script>";
     }
 }
 ?>
 
-<body class="bg-dark">
-<div class="container">
+
+<div class="container mb-5">
     <div class="card card-login mx-auto mt-5">
         <div class="card-header">Client Login Panel</div>
         <div class="card-body">
@@ -50,18 +50,16 @@ if (isset($_POST['user_login'])) {
                         <label for="inputPassword">Password</label>
                     </div>
                 </div>
-                <input type="submit" name="user_login" class="btn btn-primary" value="Login">
+                <input type="submit" name="user_login" class="btn btn-primary" id="login" value="Login">
             </form>
             <div class="text-center">
                 <a class="m-2" href="usr-register.php">Register an Account</a>
-                <a class="m-2" href="includes/forgot-password.php">Forgot Password?</a>
                 <a class="m-2" href="index.php">Home</a>
             </div>
         </div>
     </div>
 </div>
 
-</body>
 
 
 <?php

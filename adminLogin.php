@@ -32,7 +32,7 @@ if (isset($_POST['admin_login'])) {
 }
 ?>
 
-<div class="container">
+<div class="container mb-5">
     <div class="card card-login mx-auto mt-5">
         <div class="card-header">Login</div>
         <div class="card-body">
@@ -63,7 +63,7 @@ if (isset($_POST['admin_login'])) {
 
             <div class="text-center">
                 <a class="d-block small mt-3" href="index.php">Home</a>
-                <a class="d-block small" href="includes/forgot-password.php">Forgot Password?</a>
+<!--                <a class="d-block small" href="includes/forgot-password.php">Forgot Password?</a>-->
             </div>
 
         </div>

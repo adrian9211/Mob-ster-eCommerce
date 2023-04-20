@@ -6,7 +6,7 @@ include ('includes/config.php');
 $page_title = "Contact Us";
 
 
-if (isset($_POST['submit']))
+if (isset($_POST['submit2']))
 {
     $firstname = $_POST['FirstName'];
     $email = $_POST['Email'];
@@ -160,7 +160,7 @@ if (isset($_POST['submit']))
                     </div>
                 </div>
             </div>
-            <input type="submit" value="Submit" name="submit" class="btn btn-primary mb-5 " id="send">
+            <input type="submit" value="Submit" name="submit2" class="btn btn-primary mb-5 " id="send">
         </form>
     </div>
 

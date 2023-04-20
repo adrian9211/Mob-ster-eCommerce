@@ -89,42 +89,18 @@
 </script>
 
 <script>
-    $('#send').on('click', function () {
+    $('#login').on('click', function () {
 
-        const swalWithBootstrapButtons = Swal.mixin({
-            customClass: {
-                confirmButton: 'btn btn-success me-2',
-                cancelButton: 'btn btn-danger me-2'
-            },
-            buttonsStyling: false
+        Swal.fire({
+            position: 'Center',
+            icon: 'success',
+            title: 'Your successfully registered',
+            text: 'You will be redirected to the login page in 5 seconds',
+            showConfirmButton: false,
+            timer: 5000
+            window.location.href = 'user-dashboard.php',
         })
-
-        swalWithBootstrapButtons.fire({
-            title: 'Do you want to logout?',
-            text: "Please confirm",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Yes, logout!',
-            cancelButtonText: 'No, cancel!',
-            reverseButtons: true
-        }).then((result) => {
-            if (result.isConfirmed) {
-                swalWithBootstrapButtons.fire(
-                    'Your logged out!',
-                    window.location.href = 'logout.php',
-                )
-            } else if (
-                /* Read more about handling dismissals below */
-                result.dismiss === Swal.DismissReason.cancel
-            ) {
-                swalWithBootstrapButtons.fire(
-                    'Cancelled',
-                    'Your will stay on previous page :)',
-                    'error'
-                )
-            }
         })
-    })
 
 </script>
 

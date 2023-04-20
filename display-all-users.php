@@ -15,47 +15,14 @@ if(isset($_SESSION['logged-in'])) {
 
     if (isset($_POST['update']))
     {
-        $updateQuerry = "UPDATE users SET Username = '$_POST[Username]', Password = '$_POST[Password]' ,FirstName = '$_POST[FirstName]', Surname = '$_POST[Surname]' WHERE id = '$_POST[hidden]'";
+        $updateQuerry = "UPDATE users SET Username = '$_POST[Username]', Password = '$_POST[Password]' ,FirstName = '$_POST[FirstName]', Surname = '$_POST[Surname]', Phone = '$_POST[Phone]', Address = '$_POST[Address]' WHERE id = '$_GET[id]'";
         mysqli_query($conn, $updateQuerry) or die ("couldn't run query");
-        //            echo "Record updated";
     }
     if (isset($_POST['delete']))
     {
-        $deleteQuerry = "DELETE FROM users WHERE id = '$_POST[hidden]'";
+        $deleteQuerry = "DELETE FROM users WHERE id = '$_POST[id]'";
         mysqli_query($conn, $deleteQuerry) or die ("couldn't run query");
-        //            echo 'User deleted';
     }
-
-    if (isset($_POST['insert']))
-    {
-        $insertQuerry = "INSERT INTO users (Username, Password, FirstName, Surname) VALUES ('$_POST[Username]', '$_POST[Password]','$_POST[FirstName]', '$_POST[Surname]')";
-        mysqli_query($conn, $insertQuerry)
-        or die ("couldn't run query");
-        //            echo "New User record inserted";
-    }
-
-    if (isset($_POST['updateSingleUser']))
-    {
-        $updateQuerry = "UPDATE users SET Username = '$_POST[Username]', Password = '$_POST[Password]', FirstName = '$_POST[FirstName]', Surname = '$_POST[Surname]'  WHERE id = '$_POST[hidden]'";
-        mysqli_query($conn, $updateQuerry) or die ("couldn't run query");
-        //            echo "Record updated";
-    }
-
-    $result = mysqli_query($conn, "SELECT * FROM admin WHERE Username = '$user'");
-    $resultAdmin = mysqli_query($conn, "SELECT * FROM admin");
-
-    function registerUser() {
-        echo "<form action='admin-dashboard.php' method='post'>";
-        echo "<tr>";
-        echo "<td><input type='text' class='form-control' name='hidden' placeholder='Do not need to be filled up  ' value='" . $row['id'] . "'></td>";
-        echo "<td><input type='text' class='form-control' name='Username' value='" . $row['Username'] . "'></td>";
-        echo "<td><input type='text' class='form-control' name='Password' value='" . $row['Password'] . "'></td>";
-        echo "<td><input type='text' class='form-control' name='FirstName' value='" . $row['FirstName'] . "'></td>";
-        echo "<td><input type='text' class='form-control' name='Surname' value='" . $row['Surname'] . "'></td>";
-        echo "<td><input type='submit' name='insert' class='btn btn-primary' onclick='insertUser()' value='insert'></td>";
-        echo "</tr>";
-        echo "</form>";
-    };
 
     ?>
 
@@ -67,7 +34,7 @@ if(isset($_SESSION['logged-in'])) {
         <li class="breadcrumb-item">
             <a href="admin-dashboard.php">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">Overview</li>
+        <li class="breadcrumb-item active">Display all customers</li>
     </ol>
 
     <!-- Icon Cards-->
@@ -141,6 +108,48 @@ if(isset($_SESSION['logged-in'])) {
 
 
 
+    <div class="row">
+        <div class="col-12">
+
+            <?php
+            $resultSingleUser = mysqli_query($conn, "SELECT * FROM users");
+
+
+            echo "<div class='all users'>";
+
+            echo "<table border='1'>
+                        <tr>
+                            <th>Username</th>
+                            <th>Password</th>
+                            <th>First Name</th>
+                            <th>Surname</th>
+                            <th>Phone</th>
+                            <th>Address</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>";
+
+            while ($row = mysqli_fetch_array($resultSingleUser, MYSQLI_ASSOC)) {
+                echo "<form action='display-all-users.php' method='post'>";
+                echo "<tr>";
+                echo "<td><input type='text' class='form-control' name='Username' value='" . $row['Username'] . "'></td>";
+                echo "<td><input type='text' class='form-control' name='Password' value='" . $row['Password'] . "'></td>";
+                echo "<td><input type='text' class='form-control' name='FirstName' value='" . $row['FirstName'] . "'></td>";
+                echo "<td><input type='text' class='form-control' name='Surname' value='" . $row['Surname'] . "'></td>";
+                echo "<td><input type='text' class='form-control' name='Phone' value='" . $row['Phone'] . "'></td>";
+                echo "<td><input type='text' class='form-control' name='Address' value='" . $row['Address'] . "'></td>";
+                echo "<td><input type='submit' name='update' class='btn btn-success'  value='update'></td>";
+                echo "<td><input type='submit' name='delete' class='btn btn-danger'   value='delete'></td>";
+                echo "</tr>";
+                echo "</form>";
+            }
+            echo "</table>";
+
+            echo "</div>";
+            ?>
+        </div>
+
+    </div>
 
 
 
@@ -159,7 +168,7 @@ else {
     echo 'You will be redirected to the main page in 5 seconds';
     echo '</div>';
     echo '<script>';
-    echo 'setTimeout(function(){window.location.href = "http://23.102.4.246/Mob-ster/clientLogin.php";}, 5000);';
+    echo 'setTimeout(function(){window.location.href = "http://23.102.4.246/Mob-ster/adminLogin.php";}, 5000);';
     echo '</script>';
 };
 // end of else statement
