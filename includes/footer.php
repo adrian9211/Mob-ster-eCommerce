@@ -1,4 +1,5 @@
 <?php
+session_start()
 ?>
 
 <footer>
@@ -126,7 +127,7 @@
 
 <!--PayPal requirements below-->
 <script
-        src="https://www.paypal.com/sdk/js?client-id=AY2AesbweHzJWlAgaoqELloRgvjPhq3ORpuERpMDFRUgMPpnrOXPAapWjsnj25ZhiycRGQPxBaTAX9QE&currency=USD">
+        src="https://www.paypal.com/sdk/js?client-id=AY2AesbweHzJWlAgaoqELloRgvjPhq3ORpuERpMDFRUgMPpnrOXPAapWjsnj25ZhiycRGQPxBaTAX9QE&currency=GBP">
 </script>
 <script>
     // Set the amount to charge
@@ -149,8 +150,19 @@
         onApprove: function (data, actions) {
             return actions.order.capture().then(function (details) {
                 alert('Transaction completed by ' + details.payer.name.given_name + '!');
+                console.log(details)
+
+                if (details.status == "COMPLETED") {
+                    window.location.replace("payment-successful.php");
+                } else {
+                    window.location.replace("payment-cancelled.php");
+                }
+                // window.location.replace("payment-successful.php");
+
                 // Call your server to save the transaction
+
                 return fetch('/path/to/save/transaction', {
+
                     method: 'post',
                     headers: {
                         'content-type': 'application/json'
@@ -161,6 +173,11 @@
                     })
                 });
             });
+
+        },
+        // Show a cancel page, or return to cart
+        onCancel: function (data) {
+            window.location.replace("payment-cancelled.php");
         }
     }).render('#paypal-button-container');
 </script>
