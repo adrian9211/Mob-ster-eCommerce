@@ -85,7 +85,6 @@ if (isset($_POST['submit2']))
                         <nav class="social_media">
                             <ul>
                                 <li class=""><a  href="http://facebook.com" target="_blank"> <i class="fab fa-facebook fa-xl pe-3 "></i>Facebook</a></li>
-                                <li class=""><a  href="https://twitter.com" target="_blank"> <i class="fab fa-twitter fa-xl pe-3 mt-3"></i>Twitter</a></li>
                                 <li class=""><a  href="https://instagram.com" target="_blank"><i class="fab fa-instagram fa-xl pe-3 mt-3"></i>Instagram</a></li>
                                 <li class=""><a  href="https://youtube.com" target="_blank"><i class="fab fa-youtube fa-xl pe-3 mt-3"></i>YouTube</a></li>
                             </ul>

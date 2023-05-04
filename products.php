@@ -1,7 +1,6 @@
 <?php
 $page_title = "Products";
 
-session_start();
 include('includes/header.php');
 include('includes/navbar.php');
 include ('includes/config.php');

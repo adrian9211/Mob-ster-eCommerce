@@ -1,6 +1,4 @@
-<?php
-session_start()
-?>
+
 
 <footer>
     <div class="container mt-4">
